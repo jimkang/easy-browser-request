@@ -8,9 +8,11 @@ SMOKEFIREFOX = node_modules/.bin/tap-closer | \
 
 run-chrome-test: 
 	$(BROWSERIFYCMD) -d tests/basic-tests.js | $(SMOKECHROME)
+	$(BROWSERIFYCMD) -d tests/http-code-check-tests.js | $(SMOKECHROME)
 
 run-firefox-test:
 	$(BROWSERIFYCMD) -d tests/basic-tests.js | $(SMOKEFIREFOX)
+	$(BROWSERIFYCMD) -d tests/http-code-check-tests.js | $(SMOKEFIREFOX)
 
 test-chrome: start-web-server run-chrome-test
 

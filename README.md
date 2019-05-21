@@ -20,8 +20,22 @@ Usage
 
     var easyR = require('easy-browser-request');
     var { error, res, body } = await easyR({ method: 'GET', json: true, url: 'http://something.whatever/yeah' });
+    if (error) {
+      console.error(error.stack);
+      return;
+    }
+    console.log("Here's the goods:", body);
 
 If you don't specify a mimeType, it defaults to `application/json` and `done()` will be passed a parsed JSON object.
+
+Options:
+
+  - `url`: Required, the URL of the request.
+  - `method`: Required, the http verb. e.g. 'GET', 'POST'.
+  - `headers`: as per [request](https://github.com/request/request#custom-http-headers)
+  - `json`: also as per [request](https://github.com/request/request#requestoptions-callback), parses response body into JSON when this is set to true.
+  - `checkHTTPErrorCode`: If this is set to true, it will check the response status code and consider anything outside of the acceptable error code ranges to be an error. Accordingly, it will pass back an error object on fulfillment, if there was not already another (usually more serious) error.
+  - `acceptableErrorCodeRanges`: This is an array of 2-element arrays. Each two-element array represents the lower and upper bounds (inclusive) of a http error code that easy-browser-request is to consider not an error. e.g `[[200, 202], [404, 404]]`. The default is `[[200, 299]]`.
 
 The promise fulfillment delivers an object with three properties:
 
