@@ -1,6 +1,6 @@
 {
   "name": "easy-browser-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An abstraction of basic-browser-request for use with async/await.",
   "main": "index.js",
   "scripts": {
