@@ -5,7 +5,7 @@ An abstraction that wraps a promise around [basic-browser-request](https://githu
 
 These are provided in the hopes of:
 
-- Discouraging (generally) bad patterns like ignoring the error or handling the error only in a single catch for several async operations
+- Discouraging (generally) bad practices like ignoring the error or handling the error only in a single catch for several async operations
 - Encouraging handling errors as they come and always thinking about errors when performing async operations
 
 Does not support chunking and cancelling; use basic-browser-request directly for that.
